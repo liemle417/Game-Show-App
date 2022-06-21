@@ -12,6 +12,7 @@
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
+  --font-size-midmedium: 40px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
 }
@@ -40,6 +41,11 @@ h2 {
   font-family: 'Open Sans', sans-serif;
   font-size: var(--font-size-large);
   margin: 0;
+}
+
+h3{
+  font-size: var(--font-size-midmedium);
+  color: var(--color-lose);
 }
 
 button {

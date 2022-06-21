@@ -7,8 +7,8 @@ const overlay = document.getElementById('overlay');
 const btnStart = document.querySelector('.btn__reset');
 const tries = document.querySelectorAll('img');
 
-const header = document.querySelector('.header');    
-const h2 = document.querySelector('.title')
+const header = document.querySelector('.title');
+const h3 = document.querySelector('.paragraph');
 
 const phrases = [
     {
@@ -99,7 +99,7 @@ btnStart.addEventListener('click', (e) => {
     overlay.style.display = 'none';
 });
 
-header.innerHTML = `<h2>Hint 1: ${firstHint}</h2>`;
+h3.innerHTML = `<h4>Hint 1: ${firstHint}</h4>`;
 
 
 
@@ -142,7 +142,7 @@ function winning (){
     if (letter.length === show.length){
         if (missed === 0) {
             overlay.className = 'win';
-            h2.textContent = `You won! And you still have 5 guesses`;
+            h3.textContent = `You won! And you still have 5 guesses`;
             overlay.style.transition = "all 3s";
             overlay.style.display = 'flex';
             btnStart.textContent = 'Again?';
@@ -152,7 +152,7 @@ function winning (){
             });
         }  else{
             overlay.className = 'win';
-            h2.textContent = `You won!`;
+            h3.textContent = `You won!`;
             overlay.style.transition = "all 3s";
             overlay.style.display = 'flex';
             btnStart.textContent = 'Again?';
@@ -163,7 +163,7 @@ function winning (){
         }    
     } else if (missed === 5 ){
         overlay.className = 'lose';
-        h2.textContent = `You lose!!! And the song was '${song}'`;
+        header.textContent = `You lose!!! And the song was '${song}'`;
         overlay.style.transition = "all 3s";
         overlay.style.display = 'flex';
         btnStart.textContent = 'You lose! Try Again?'
@@ -190,19 +190,19 @@ buttons.addEventListener('click', (e) => {
             //If the user lose 1 heart, trigger another hint
             //This code can be improved by using a loop.
             if(tries.length-missed === 4){
-                header.innerHTML = `<h2>Hint 2: ${secondHint}</h2>`;
+                h3.innerHTML = `<h4>Hint 2: ${secondHint}</h4>`;
             }
 
             if(tries.length-missed === 3){
-                header.innerHTML = `<h2>Hint 3: ${thirdHint}</h2>`;
+                h3.innerHTML = `<h4>Hint 3: ${thirdHint}</h4>`;
             }
 
             if(tries.length-missed === 2){
-                header.innerHTML = `<h2>Hint 4: ${fourthHint}</h2>`;
+                h3.innerHTML = `<h4>Hint 4: ${fourthHint}</h4>`;
             }
 
             if(tries.length-missed === 1){
-                header.innerHTML = `<h2>Last Hint: ${fifthHint}</h2>`;
+                h3.innerHTML = `<h4>Last Hint: ${fifthHint}</h4>`;
             }
 
         }
@@ -214,7 +214,7 @@ buttons.addEventListener('click', (e) => {
 //Create a function called "LOSE"
 function loseAlert(){
     overlay.className = 'lose';
-    h2.innerHTML = `CHEATER!!!!<br>Right click to search or Copy will make you lose!!!`;
+    h3.innerHTML = `CHEATER!!!!<br>Right click to search or Copy will make you lose!!!`;
     overlay.style.transition = "all 3s";
     overlay.style.display = 'flex';
     btnStart.textContent = 'You lose! Try Again?';
@@ -225,10 +225,10 @@ function loseAlert(){
 }
 
 //INSTANTLY GAME OVER WHEN RIGHT CLICK OR CTRL + C
-header.addEventListener('contextmenu', (e) =>{
+h3.addEventListener('contextmenu', (e) =>{
     loseAlert();
 });
 
-header.addEventListener('copy', (e) =>{
+h3.addEventListener('copy', (e) =>{
     loseAlert();
 });

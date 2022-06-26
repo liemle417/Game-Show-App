@@ -142,7 +142,7 @@ function winning (){
     if (letter.length === show.length){
         if (missed === 0) {
             overlay.className = 'win';
-            h3.textContent = `You won! And you still have 5 guesses`;
+            header.textContent = `You won! And you still have 5 guesses`;
             overlay.style.transition = "all 3s";
             overlay.style.display = 'flex';
             btnStart.textContent = 'Again?';
@@ -152,7 +152,7 @@ function winning (){
             });
         }  else{
             overlay.className = 'win';
-            h3.textContent = `You won!`;
+            header.textContent = `You won!`;
             overlay.style.transition = "all 3s";
             overlay.style.display = 'flex';
             btnStart.textContent = 'Again?';
@@ -214,7 +214,7 @@ buttons.addEventListener('click', (e) => {
 //Create a function called "LOSE"
 function loseAlert(){
     overlay.className = 'lose';
-    h3.innerHTML = `CHEATER!!!!<br>Right click to search or Copy will make you lose!!!`;
+    header.innerHTML = `CHEATER!!!!<br>Right click to search or Copy will make you lose!!!`;
     overlay.style.transition = "all 3s";
     overlay.style.display = 'flex';
     btnStart.textContent = 'You lose! Try Again?';
